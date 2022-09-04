@@ -1,0 +1,99 @@
+{
+  "uid" : "920d5a0293b6b041",
+  "name" : "shouldNotRegisterUserWithEmptyName",
+  "fullName" : "site.nomoreparties.stellarburgers.users.UserRegisterTest.shouldNotRegisterUserWithEmptyName",
+  "historyId" : "3619e9e07a1dde467c4bad904eb948b7",
+  "time" : {
+    "start" : 1662316594974,
+    "stop" : 1662316595462,
+    "duration" : 488
+  },
+  "description" : "Регистрация пользователя c пустым name",
+  "descriptionHtml" : "<p>Регистрация пользователя c пустым name</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "Регистрация пользователя c пустым name",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Регистрация пользователя с параметрами User{email='florida.blanda@yahoo.com', password='uq16f2s0', name=''}",
+      "time" : {
+        "start" : 1662316595030,
+        "stop" : 1662316595456,
+        "duration" : 426
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "acc8d38cf1529047",
+        "name" : "Request",
+        "source" : "acc8d38cf1529047.html",
+        "type" : "text/html",
+        "size" : 763
+      }, {
+        "uid" : "828c4703740ac5d5",
+        "name" : "HTTP/1.1 403 Forbidden",
+        "source" : "828c4703740ac5d5.html",
+        "type" : "text/html",
+        "size" : 1382
+      } ],
+      "parameters" : [ {
+        "name" : "user",
+        "value" : "User{email='florida.blanda@yahoo.com', password='uq16f2s0', name=''}"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 2
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 1,
+    "hasContent" : true,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 2
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "site.nomoreparties.stellarburgers.users"
+  }, {
+    "name" : "testClass",
+    "value" : "site.nomoreparties.stellarburgers.users.UserRegisterTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "shouldNotRegisterUserWithEmptyName"
+  }, {
+    "name" : "suite",
+    "value" : "site.nomoreparties.stellarburgers.users.UserRegisterTest"
+  }, {
+    "name" : "host",
+    "value" : "DESKTOP-S1QEK87"
+  }, {
+    "name" : "thread",
+    "value" : "200296@DESKTOP-S1QEK87.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "920d5a0293b6b041.json",
+  "parameterValues" : [ ]
+}

@@ -1,0 +1,192 @@
+{
+  "uid" : "d01410400bb7a261",
+  "name" : "shouldNotUpdateUserDataWithoutAuthorization",
+  "fullName" : "site.nomoreparties.stellarburgers.users.UserUpdateDataTest.shouldNotUpdateUserDataWithoutAuthorization",
+  "historyId" : "7429d242e7f00c6e74738710fbeac457",
+  "time" : {
+    "start" : 1662316602023,
+    "stop" : 1662316603763,
+    "duration" : 1740
+  },
+  "description" : "Изменение пользовательских данных без авторизаци",
+  "descriptionHtml" : "<p>Изменение пользовательских данных без авторизаци</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "Изменение пользовательских данных без авторизаци",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Регистрация пользователя с параметрами User{email='pearlie.klein@gmail.com', password='6fsn0h5w', name='Mary'}",
+      "time" : {
+        "start" : 1662316602052,
+        "stop" : 1662316602509,
+        "duration" : 457
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "4d208ce1a676ef6",
+        "name" : "Request",
+        "source" : "4d208ce1a676ef6.html",
+        "type" : "text/html",
+        "size" : 769
+      }, {
+        "uid" : "7bf601ab1e4e1606",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "7bf601ab1e4e1606.html",
+        "type" : "text/html",
+        "size" : 1989
+      } ],
+      "parameters" : [ {
+        "name" : "user",
+        "value" : "User{email='pearlie.klein@gmail.com', password='6fsn0h5w', name='Mary'}"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 2
+    }, {
+      "name" : "Обновление данных пользователя на User{email='updatepearlie.klein@gmail.com', password='update6fsn0h5w', name='updateMary'}",
+      "time" : {
+        "start" : 1662316602511,
+        "stop" : 1662316602878,
+        "duration" : 367
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "584b770a5f5d8063",
+        "name" : "Request",
+        "source" : "584b770a5f5d8063.html",
+        "type" : "text/html",
+        "size" : 863
+      }, {
+        "uid" : "a6861544c7d08532",
+        "name" : "HTTP/1.1 401 Unauthorized",
+        "source" : "a6861544c7d08532.html",
+        "type" : "text/html",
+        "size" : 1308
+      } ],
+      "parameters" : [ {
+        "name" : "user",
+        "value" : "User{email='updatepearlie.klein@gmail.com', password='update6fsn0h5w', name='updateMary'}"
+      }, {
+        "name" : "bearerToken",
+        "value" : ""
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 2
+    }, {
+      "name" : "Авторизация пользователя в системе User{email='updatepearlie.klein@gmail.com', password='update6fsn0h5w', name='null'}",
+      "time" : {
+        "start" : 1662316602880,
+        "stop" : 1662316603270,
+        "duration" : 390
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "630535f1584f4c3f",
+        "name" : "Request",
+        "source" : "630535f1584f4c3f.html",
+        "type" : "text/html",
+        "size" : 707
+      }, {
+        "uid" : "2d70b36b3b158ae7",
+        "name" : "HTTP/1.1 401 Unauthorized",
+        "source" : "2d70b36b3b158ae7.html",
+        "type" : "text/html",
+        "size" : 1315
+      } ],
+      "parameters" : [ {
+        "name" : "user",
+        "value" : "User{email='updatepearlie.klein@gmail.com', password='update6fsn0h5w', name='null'}"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 2
+    }, {
+      "name" : "Удаление пользователя",
+      "time" : {
+        "start" : 1662316603272,
+        "stop" : 1662316603763,
+        "duration" : 491
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "de7441402ee14dc3",
+        "name" : "Request",
+        "source" : "de7441402ee14dc3.html",
+        "type" : "text/html",
+        "size" : 793
+      }, {
+        "uid" : "acd2a63174e0968",
+        "name" : "HTTP/1.1 202 Accepted",
+        "source" : "acd2a63174e0968.html",
+        "type" : "text/html",
+        "size" : 1306
+      } ],
+      "parameters" : [ {
+        "name" : "bearerToken",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMTRmMDNhOTNlYmMyMDAxYjRjMjU4ZCIsImlhdCI6MTY2MjMxNjYwMiwiZXhwIjoxNjYyMzE3ODAyfQ.bqfJwVMN1APWKVJPnUCtEDYdbQE_hqVgu-gSTnK9J90"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 2
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 4,
+    "hasContent" : true,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 8
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "site.nomoreparties.stellarburgers.users"
+  }, {
+    "name" : "testClass",
+    "value" : "site.nomoreparties.stellarburgers.users.UserUpdateDataTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "shouldNotUpdateUserDataWithoutAuthorization"
+  }, {
+    "name" : "suite",
+    "value" : "site.nomoreparties.stellarburgers.users.UserUpdateDataTest"
+  }, {
+    "name" : "host",
+    "value" : "DESKTOP-S1QEK87"
+  }, {
+    "name" : "thread",
+    "value" : "200296@DESKTOP-S1QEK87.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "d01410400bb7a261.json",
+  "parameterValues" : [ ]
+}

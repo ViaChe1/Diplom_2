@@ -1,0 +1,222 @@
+{
+  "uid" : "7e5467fe4539ee7d",
+  "name" : "shouldNotUpdateUserEmailIfEmailExist",
+  "fullName" : "site.nomoreparties.stellarburgers.users.UserUpdateDataTest.shouldNotUpdateUserEmailIfEmailExist",
+  "historyId" : "2051789a193e360179fa458e767049c3",
+  "time" : {
+    "start" : 1662316603768,
+    "stop" : 1662316606257,
+    "duration" : 2489
+  },
+  "description" : "Изменение email на уже сушествующий в системе",
+  "descriptionHtml" : "<p>Изменение email на уже сушествующий в системе</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "Изменение email на уже сушествующий в системе",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Регистрация пользователя с параметрами User{email='bobette.reilly@hotmail.com', password='6uwita1bki8l', name='Audie'}",
+      "time" : {
+        "start" : 1662316603878,
+        "stop" : 1662316604419,
+        "duration" : 541
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "2499b44469f9cf92",
+        "name" : "Request",
+        "source" : "2499b44469f9cf92.html",
+        "type" : "text/html",
+        "size" : 785
+      }, {
+        "uid" : "edc34835f872691c",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "edc34835f872691c.html",
+        "type" : "text/html",
+        "size" : 1991
+      } ],
+      "parameters" : [ {
+        "name" : "user",
+        "value" : "User{email='bobette.reilly@hotmail.com', password='6uwita1bki8l', name='Audie'}"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 2
+    }, {
+      "name" : "Регистрация пользователя с параметрами User{email='cammie.schamberger@hotmail.com', password='snjbm29e95', name='Franklin'}",
+      "time" : {
+        "start" : 1662316604451,
+        "stop" : 1662316604902,
+        "duration" : 451
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "640a7d2ea7c16e76",
+        "name" : "Request",
+        "source" : "640a7d2ea7c16e76.html",
+        "type" : "text/html",
+        "size" : 795
+      }, {
+        "uid" : "7a30f16e38ebc885",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "7a30f16e38ebc885.html",
+        "type" : "text/html",
+        "size" : 2006
+      } ],
+      "parameters" : [ {
+        "name" : "user",
+        "value" : "User{email='cammie.schamberger@hotmail.com', password='snjbm29e95', name='Franklin'}"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 2
+    }, {
+      "name" : "Обновление данных пользователя на User{email='cammie.schamberger@hotmail.com', password='6uwita1bki8l', name='Audie'}",
+      "time" : {
+        "start" : 1662316604904,
+        "stop" : 1662316605369,
+        "duration" : 465
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "e6abf9552e710d84",
+        "name" : "Request",
+        "source" : "e6abf9552e710d84.html",
+        "type" : "text/html",
+        "size" : 1207
+      }, {
+        "uid" : "967006d8d9104666",
+        "name" : "HTTP/1.1 403 Forbidden",
+        "source" : "967006d8d9104666.html",
+        "type" : "text/html",
+        "size" : 1373
+      } ],
+      "parameters" : [ {
+        "name" : "user",
+        "value" : "User{email='cammie.schamberger@hotmail.com', password='6uwita1bki8l', name='Audie'}"
+      }, {
+        "name" : "bearerToken",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMTRmMDNiOTNlYmMyMDAxYjRjMjU4ZiIsImlhdCI6MTY2MjMxNjYwMywiZXhwIjoxNjYyMzE3ODAzfQ.ZCMZEjn18bViVIQzsemNFHe-C-TN6kGw_bnjsAal1Fc"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 2
+    }, {
+      "name" : "Удаление пользователя",
+      "time" : {
+        "start" : 1662316605370,
+        "stop" : 1662316605778,
+        "duration" : 408
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "7a75d1f88c371ddf",
+        "name" : "Request",
+        "source" : "7a75d1f88c371ddf.html",
+        "type" : "text/html",
+        "size" : 793
+      }, {
+        "uid" : "6a15e310d71304f5",
+        "name" : "HTTP/1.1 202 Accepted",
+        "source" : "6a15e310d71304f5.html",
+        "type" : "text/html",
+        "size" : 1308
+      } ],
+      "parameters" : [ {
+        "name" : "bearerToken",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMTRmMDNjOTNlYmMyMDAxYjRjMjU5MSIsImlhdCI6MTY2MjMxNjYwNCwiZXhwIjoxNjYyMzE3ODA0fQ.D1qK6fmRscwKV9YVtAb__Iy4ZxMxIkUvyIrZnquhJFk"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 2
+    }, {
+      "name" : "Удаление пользователя",
+      "time" : {
+        "start" : 1662316605779,
+        "stop" : 1662316606257,
+        "duration" : 478
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "f9a102d0423e7151",
+        "name" : "Request",
+        "source" : "f9a102d0423e7151.html",
+        "type" : "text/html",
+        "size" : 793
+      }, {
+        "uid" : "c71c4a4ce85565c1",
+        "name" : "HTTP/1.1 202 Accepted",
+        "source" : "c71c4a4ce85565c1.html",
+        "type" : "text/html",
+        "size" : 1304
+      } ],
+      "parameters" : [ {
+        "name" : "bearerToken",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMTRmMDNiOTNlYmMyMDAxYjRjMjU4ZiIsImlhdCI6MTY2MjMxNjYwMywiZXhwIjoxNjYyMzE3ODAzfQ.ZCMZEjn18bViVIQzsemNFHe-C-TN6kGw_bnjsAal1Fc"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 2
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 5,
+    "hasContent" : true,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 10
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "site.nomoreparties.stellarburgers.users"
+  }, {
+    "name" : "testClass",
+    "value" : "site.nomoreparties.stellarburgers.users.UserUpdateDataTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "shouldNotUpdateUserEmailIfEmailExist"
+  }, {
+    "name" : "suite",
+    "value" : "site.nomoreparties.stellarburgers.users.UserUpdateDataTest"
+  }, {
+    "name" : "host",
+    "value" : "DESKTOP-S1QEK87"
+  }, {
+    "name" : "thread",
+    "value" : "200296@DESKTOP-S1QEK87.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "7e5467fe4539ee7d.json",
+  "parameterValues" : [ ]
+}
