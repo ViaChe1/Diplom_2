@@ -16,21 +16,18 @@ import static org.apache.http.HttpStatus.SC_OK;
 import static org.apache.http.HttpStatus.SC_UNAUTHORIZED;
 
 public class UserLoginTest {
-
-    SoftAssertions softAssertions = new SoftAssertions();
-    UserClient userClient;
-    User user;
-    RegisterLoginResponse registerResponse;
-    RegisterLoginResponse loginResponse;
-    ResultResponse resultResponse;
-
+    private SoftAssertions softAssertions = new SoftAssertions();
+    private UserClient userClient;
+    private  User user;
+    private RegisterLoginResponse registerResponse;
+    private RegisterLoginResponse loginResponse;
+    private ResultResponse resultResponse;
     @Before
     public void setUp() {
         userClient = new UserClient();
         user = UserGenerator.getRandomUser();
         registerResponse = userClient.register(user).extract().as(RegisterLoginResponse.class);
     }
-
     @After
     public void tearDown() {
         // Удаляем пользователя, там где он был создан, т.е. success = true на запрос регистрации
@@ -43,14 +40,12 @@ public class UserLoginTest {
         }
 
     }
-
     @Test
     @Description("Логин под существующим пользователем")
     public void shouldLoginExistUser() {
         User userCredential = new User(user.getEmail(), user.getPassword());
         ValidatableResponse loginResponse = userClient.login(userCredential);
         this.loginResponse = loginResponse.extract().as(RegisterLoginResponse.class);
-
         softAssertions.assertThat(loginResponse.extract().statusCode()).isEqualTo(SC_OK);
         softAssertions.assertThat(this.loginResponse.isSuccess()).isTrue();
         softAssertions.assertAll();
@@ -64,7 +59,6 @@ public class UserLoginTest {
                 user.getName() + user.getPassword());
         ValidatableResponse loginResponse = userClient.login(userCredential);
         resultResponse = loginResponse.extract().as(ResultResponse.class);
-
         softAssertions.assertThat(loginResponse.extract().statusCode()).isEqualTo(SC_UNAUTHORIZED);
         softAssertions.assertThat(resultResponse.isSuccess()).isFalse();
         softAssertions.assertThat(resultResponse.getMessage()).isEqualTo("email or password are incorrect");

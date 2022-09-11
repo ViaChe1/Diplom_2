@@ -22,17 +22,14 @@ import static org.apache.http.HttpStatus.SC_OK;
 import static org.apache.http.HttpStatus.SC_UNAUTHORIZED;
 
 public class GetUserOrdersListTest {
-
-    SoftAssertions softAssertions = new SoftAssertions();
-    UserClient userClient;
-    OrdersClient ordersClient;
-    User user;
-    ResultResponse resultResponse;
-    RegisterLoginResponse registerResponse;
-    IngredientsData ingredientsData;
-    UserOrdersListResponse userOrdersListResponse;
-
-
+    private SoftAssertions softAssertions = new SoftAssertions();
+    private UserClient userClient;
+    private OrdersClient ordersClient;
+    private User user;
+    private ResultResponse resultResponse;
+    private RegisterLoginResponse registerResponse;
+    private IngredientsData ingredientsData;
+    private UserOrdersListResponse userOrdersListResponse;
     @Before
     public void setUp() {
         // Регистрируем нового пользователя
@@ -43,10 +40,7 @@ public class GetUserOrdersListTest {
         // Получаем список ингредиентов
         ingredientsData = ordersClient.getIngredients().extract().as(IngredientsData.class);
         // Формируем случайный список хэшей ингредиентов для заказа (булочка, соус, начинка)
-
-
     }
-
     @After
     public void tearDown() {
         // Удаляем пользователя, там где он был создан, т.е. success = true на запрос регистрации
@@ -58,7 +52,6 @@ public class GetUserOrdersListTest {
             System.out.println("Пользователь не создавался, удалять некого");
         }
     }
-
     @Test
     @Description("Получаем список заказов авторизованного пользователя")
     public void shouldGetOrderListAuthorizationUser() {
@@ -83,7 +76,6 @@ public class GetUserOrdersListTest {
                 .isEqualTo(userOrdersListResponse.getOrders().get(1).get_id());
         softAssertions.assertAll();
     }
-
     @Test
     @Description("Получаем список заказов неавторизованного пользователя")
     public void shouldNotGetOrdersListNotAuthorizationUser() {
@@ -94,7 +86,6 @@ public class GetUserOrdersListTest {
         // Получаем список заказов неавторизованного пользователя (передаем пустой токен)
         ValidatableResponse getUserOrderList = ordersClient.getUserOrdersList("");
         resultResponse = getUserOrderList.extract().as(ResultResponse.class);
-
         softAssertions.assertThat(getUserOrderList.extract().statusCode()).isEqualTo(SC_UNAUTHORIZED);
         softAssertions.assertThat(resultResponse.isSuccess()).isFalse();
         softAssertions.assertThat(resultResponse.getMessage()).isEqualTo("You should be authorised");
