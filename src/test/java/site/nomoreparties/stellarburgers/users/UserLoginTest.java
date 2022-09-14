@@ -18,16 +18,18 @@ import static org.apache.http.HttpStatus.SC_UNAUTHORIZED;
 public class UserLoginTest {
     private SoftAssertions softAssertions = new SoftAssertions();
     private UserClient userClient;
-    private  User user;
+    private User user;
     private RegisterLoginResponse registerResponse;
     private RegisterLoginResponse loginResponse;
     private ResultResponse resultResponse;
+
     @Before
     public void setUp() {
         userClient = new UserClient();
         user = UserGenerator.getRandomUser();
         registerResponse = userClient.register(user).extract().as(RegisterLoginResponse.class);
     }
+
     @After
     public void tearDown() {
         // Удаляем пользователя, там где он был создан, т.е. success = true на запрос регистрации
@@ -40,6 +42,7 @@ public class UserLoginTest {
         }
 
     }
+
     @Test
     @Description("Логин под существующим пользователем")
     public void shouldLoginExistUser() {

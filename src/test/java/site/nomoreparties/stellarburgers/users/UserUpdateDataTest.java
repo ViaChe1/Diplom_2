@@ -25,6 +25,7 @@ public class UserUpdateDataTest {
     private RegisterLoginResponse loginResponse;
     private UpdateUserDataResponse updateUserDataResponse;
     private ResultResponse resultResponse;
+
     @Before
     public void setUp() {
         userClient = new UserClient();
@@ -43,6 +44,7 @@ public class UserUpdateDataTest {
             System.out.println("Пользователь не создавался, удалять некого");
         }
     }
+
     @Test
     @Description("Изменение пользовательских данных с авторизацией")
     public void shouldUpdateUserDataWithAuthorization() {
@@ -63,6 +65,7 @@ public class UserUpdateDataTest {
         softAssertions.assertThat(this.updateUserDataResponse.getUser().getName()).isEqualTo(user.getName());
         softAssertions.assertAll();
     }
+
     @Test
     @Description("Изменение пользовательских данных без авторизаци")
     public void shouldNotUpdateUserDataWithoutAuthorization() {
@@ -84,6 +87,7 @@ public class UserUpdateDataTest {
         softAssertions.assertAll();
 
     }
+
     @Test
     @Description("Изменение email на уже сушествующий в системе")
     public void shouldNotUpdateUserEmailIfEmailExist() {

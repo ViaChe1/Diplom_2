@@ -29,11 +29,12 @@ public class OrderCreateTest {
     private SoftAssertions softAssertions = new SoftAssertions();
     private UserClient userClient;
     private OrdersClient ordersClient;
-    private  User user;
-    private  RegisterLoginResponse registerResponse;
+    private User user;
+    private RegisterLoginResponse registerResponse;
     private OrderCreateResponse orderResponse;
     private ResultResponse resultResponse;
-    private  OrderCreateRequest orderCreateRequest;
+    private OrderCreateRequest orderCreateRequest;
+
     @Before
     public void setUp() {
         // Регистрируем нового пользователя
@@ -48,6 +49,7 @@ public class OrderCreateTest {
         orderCreateRequest.setIngredients(OrderGenerator.getRandomOrder(ingredientsData.getData()));
 
     }
+
     @After
     public void tearDown() {
         // Удаляем пользователя, там где он был создан, т.е. success = true на запрос регистрации
@@ -59,6 +61,7 @@ public class OrderCreateTest {
             System.out.println("Пользователь не создавался, удалять некого");
         }
     }
+
     @Test
     @Description("Создание заказа пользователем с авторизацией")
     public void shouldCreateOrderWithAuthorization() {
@@ -74,11 +77,12 @@ public class OrderCreateTest {
         softAssertions.assertThat(orderResponse.getOrder().getPrice()).isNotEqualTo(0);
         softAssertions.assertAll();
     }
+
     @Test
     @Description("Создание заказа пользователем без авторизации")
     public void shouldCreateOrderWithoutAuthorization() {
         // Создаем заказ без авторизации
-        ValidatableResponse createUserOrder = ordersClient.createOrder(orderCreateRequest,"");
+        ValidatableResponse createUserOrder = ordersClient.createOrder(orderCreateRequest, "");
         orderResponse = createUserOrder.extract().as(OrderCreateResponse.class);
         softAssertions.assertThat(createUserOrder.extract().statusCode()).isEqualTo(SC_OK);
         softAssertions.assertThat(orderResponse.isSuccess()).isTrue();
@@ -87,6 +91,7 @@ public class OrderCreateTest {
         softAssertions.assertThat(orderResponse.getOrder().getStatus()).isNull();
         softAssertions.assertAll();
     }
+
     @Test
     @Description("Создание заказа без ингредиентов")
     public void shouldNotCreateOrderWithoutIngredients() {
@@ -100,6 +105,7 @@ public class OrderCreateTest {
         softAssertions.assertThat(resultResponse.getMessage()).isEqualTo("Ingredient ids must be provided");
         softAssertions.assertAll();
     }
+
     @Test
     @Description("Создание заказа c невалидным хешем ингредиента")
     public void shouldNotCreateOrderWithInvalidIngredientHash() {
@@ -107,6 +113,6 @@ public class OrderCreateTest {
         orderCreateRequest.getIngredients().set(0, orderCreateRequest.getIngredients().get(0) + "wrongHash");
         ValidatableResponse createUserOrder = ordersClient.createOrder(orderCreateRequest,
                 registerResponse.getAccessToken());
-        assertEquals(createUserOrder.extract().statusCode(), SC_INTERNAL_SERVER_ERROR);
+        assertEquals(SC_INTERNAL_SERVER_ERROR, createUserOrder.extract().statusCode());
     }
 }

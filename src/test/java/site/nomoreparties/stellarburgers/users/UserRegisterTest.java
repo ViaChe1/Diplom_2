@@ -19,13 +19,16 @@ public class UserRegisterTest {
     private SoftAssertions softAssertions = new SoftAssertions();
     private UserClient userClient;
     private User user;
-    private  RegisterLoginResponse registerResponse;
-    private  ResultResponse resultResponse;
-    public static final String USER_REGISTER_MSG_FALSE = "Email, password and name are required fields";    @Before
+    private RegisterLoginResponse registerResponse;
+    private ResultResponse resultResponse;
+    public static final String USER_REGISTER_MSG_FALSE = "Email, password and name are required fields";
+
+    @Before
     public void setUp() {
         userClient = new UserClient();
         user = UserGenerator.getRandomUser();
     }
+
     @After
     public void tearDown() {
         // Удаляем пользователя, там где он был создан, т.е. success = true на запрос регистрации
@@ -37,6 +40,7 @@ public class UserRegisterTest {
             System.out.println("Пользователь не создавался, удалять некого");
         }
     }
+
     @Test
     @Description("Регистрация пользователя")
     public void shouldRegisterUser() {
@@ -46,6 +50,7 @@ public class UserRegisterTest {
         softAssertions.assertThat(this.registerResponse.isSuccess()).isTrue();
         softAssertions.assertAll();
     }
+
     @Test
     @Description("Регистрация пользователя, который уже зарегистрирован")
     public void shouldNotRegisterExistUser() {
@@ -60,6 +65,7 @@ public class UserRegisterTest {
         softAssertions.assertThat(resultResponse.getMessage()).isEqualTo("User already exists");
         softAssertions.assertAll();
     }
+
     @Test
     @Description("Регистрация пользователя без email (null)")
     public void shouldNotRegisterUserWithoutEmail() {
@@ -70,6 +76,7 @@ public class UserRegisterTest {
         softAssertions.assertThat(resultResponse.getMessage()).isEqualTo(USER_REGISTER_MSG_FALSE);
         softAssertions.assertAll();
     }
+
     @Test
     @Description("Регистрация пользователя c пустым email")
     public void shouldNotRegisterUserWithEmptyEmail() {
@@ -81,6 +88,7 @@ public class UserRegisterTest {
         softAssertions.assertThat(resultResponse.getMessage()).isEqualTo(USER_REGISTER_MSG_FALSE);
         softAssertions.assertAll();
     }
+
     @Test
     @Description("Регистрация пользователя без name (null)")
     public void shouldNotRegisterUserWithoutName() {
@@ -91,6 +99,7 @@ public class UserRegisterTest {
         softAssertions.assertThat(resultResponse.getMessage()).isEqualTo(USER_REGISTER_MSG_FALSE);
         softAssertions.assertAll();
     }
+
     @Test
     @Description("Регистрация пользователя c пустым name")
     public void shouldNotRegisterUserWithEmptyName() {
@@ -101,6 +110,7 @@ public class UserRegisterTest {
         softAssertions.assertThat(resultResponse.getMessage()).isEqualTo(USER_REGISTER_MSG_FALSE);
         softAssertions.assertAll();
     }
+
     @Test
     @Description("Регистрация пользователя без password (null)")
     public void shouldNotRegisterUserWithoutPassword() {
@@ -111,6 +121,7 @@ public class UserRegisterTest {
         softAssertions.assertThat(resultResponse.getMessage()).isEqualTo(USER_REGISTER_MSG_FALSE);
         softAssertions.assertAll();
     }
+
     @Test
     @Description("Регистрация пользователя c пустым password")
     public void shouldNotRegisterUserWithEmptyPassword() {

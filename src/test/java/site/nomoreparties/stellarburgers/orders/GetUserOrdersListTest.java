@@ -30,6 +30,7 @@ public class GetUserOrdersListTest {
     private RegisterLoginResponse registerResponse;
     private IngredientsData ingredientsData;
     private UserOrdersListResponse userOrdersListResponse;
+
     @Before
     public void setUp() {
         // Регистрируем нового пользователя
@@ -41,6 +42,7 @@ public class GetUserOrdersListTest {
         ingredientsData = ordersClient.getIngredients().extract().as(IngredientsData.class);
         // Формируем случайный список хэшей ингредиентов для заказа (булочка, соус, начинка)
     }
+
     @After
     public void tearDown() {
         // Удаляем пользователя, там где он был создан, т.е. success = true на запрос регистрации
@@ -52,6 +54,7 @@ public class GetUserOrdersListTest {
             System.out.println("Пользователь не создавался, удалять некого");
         }
     }
+
     @Test
     @Description("Получаем список заказов авторизованного пользователя")
     public void shouldGetOrderListAuthorizationUser() {
@@ -76,6 +79,7 @@ public class GetUserOrdersListTest {
                 .isEqualTo(userOrdersListResponse.getOrders().get(1).get_id());
         softAssertions.assertAll();
     }
+
     @Test
     @Description("Получаем список заказов неавторизованного пользователя")
     public void shouldNotGetOrdersListNotAuthorizationUser() {
